@@ -2,17 +2,17 @@ meanApp.controller('meetupsController', function($scope, $resource){
 
 	var Meetup = $resource('/api/meetups');
 
-	$scope.meetupsCount = 10;
-
-	$scope.meetups = [
-		{name:'mean sf developers'},
-		{name:'other devs'}
-	];
+	Meetup.query(function(results){
+		$scope.meetups = results;
+	});
 
 	$scope.createMeetup = function(){
 		var meetup  = new Meetup();
 		meetup.name = $scope.meetupName;
-		meetup.$save();
+		meetup.$save( function( result ){
+			$scope.meetups.push( result );
+			$scope.meetupName = '';
+		});
 	};
 
 
