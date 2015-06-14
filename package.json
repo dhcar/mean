@@ -1,4 +1,10 @@
 {
-	"name":"mean",
-	"version":"0.1"
+  "name": "mean",
+  "version": "0.1.0",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "mongoose": "^4.0.5",
+    "node-pre-gyp": "^0.6.7"
+  }
 }
